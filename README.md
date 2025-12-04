@@ -55,7 +55,7 @@ Export the fetched logs as CSV, JSON, or TXT.
 aws-cloudwatch-viewer/
 │
 ├── src/
-│   |── app.py          # Main PyQt5 application
+│   │── app.py          # Main PyQt5 application
 │
 ├── README.md
 └── requirements.txt
