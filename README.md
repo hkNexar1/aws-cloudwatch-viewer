@@ -16,13 +16,16 @@
 
 📦 Installation
 1. Clone the repository
+bash
 git clone https://github.com/hknexar1/aws-cloudwatch-viewer.git
 cd aws-cloudwatch-viewer
 
 2. Install dependencies
+bash
 pip install boto3 PyQt5
 
 3. Run the application
+bash
 python src/app.py
 
 📝 Usage
