@@ -15,7 +15,7 @@ A desktop GUI application built with Python (PyQt5) to view, filter, and export 
 
 1. Clone the repository:
    ```bash
-   git clone [https://github.com/hknexar1/aws-cloudwatch-viewer.git](https://github.com/hknexar1/aws-cloudwatch-viewer.git)
+   git clone https://github.com/hknexar1/aws-cloudwatch-viewer.git
    cd aws-cloudwatch-viewer
 Install the required dependencies:
 
@@ -59,3 +59,4 @@ PyQt5
 
 License
 This project is licensed under the MIT License.
+```
