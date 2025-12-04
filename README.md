@@ -1,4 +1,4 @@
-🚀 Features
+#🚀 Features
 
 🖥️ User-Friendly Interface: Clean and modern PyQt5 GUI.
 
@@ -16,19 +16,19 @@
 
 📦 Installation
 1. Clone the repository
-bash
+```bash
 git clone https://github.com/hknexar1/aws-cloudwatch-viewer.git
 cd aws-cloudwatch-viewer
-
+```
 2. Install dependencies
-bash
+```bash
 pip install boto3 PyQt5
-
+```
 3. Run the application
-bash
+```bash
 python src/app.py
-
-📝 Usage
+```
+#📝 Usage
 
 Launch the application.
 
@@ -50,19 +50,18 @@ Click "Download Logs (Async)" to fetch logs in the background.
 
 Export the fetched logs as CSV, JSON, or TXT.
 
-📁 Project Structure
+#📁 Project Structure
 aws-cloudwatch-viewer/
 │
 ├── src/
 │   ├── app.py          # Main PyQt5 application
-│   ├── aws_handler.py  # AWS API logic
-│   ├── threads.py      # QThread workers
-│   └── utils.py        # Helper utilities
+│ 
+│ 
 │
 ├── README.md
 └── requirements.txt
 
-📄 License
+#📄 License
 
 This project is licensed under the MIT License.
-You may freely use, modify, and distribute it.
+
