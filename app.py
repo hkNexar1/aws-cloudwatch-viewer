@@ -11,7 +11,7 @@ from PyQt5.QtWidgets import (
 from PyQt5.QtCore import Qt, QThread, pyqtSignal
 
 # ----------------------------------------------------------
-# WORKER THREAD (Logları Arka Planda İndirir)
+# WORKER THREAD
 # ----------------------------------------------------------
 class LogWorker(QThread):
     finished = pyqtSignal(list)
@@ -33,7 +33,7 @@ class LogWorker(QThread):
             all_events = []
 
             for log_group in self.log_groups:
-                # İlk istek
+               
                 response = client.filter_log_events(
                     logGroupName=log_group,
                     filterPattern=self.filter_pattern,
@@ -43,9 +43,9 @@ class LogWorker(QThread):
                 events = response.get("events", [])
                 all_events.extend(events)
 
-                # Sayfalama (Pagination)
+               
                 while "nextToken" in response:
-                    # Thread durdurulursa döngüyü kır (Güvenlik için)
+                   
                     if self.isInterruptionRequested():
                         return
 
@@ -72,7 +72,7 @@ class CloudWatchViewer(QWidget):
 
         self.session = None
         self.last_events = []
-        self.worker = None # Thread referansı
+        self.worker = None 
 
         self.setWindowTitle("AWS CloudWatch Log Viewer PRO (v2.0)")
         self.setGeometry(200, 150, 950, 750)
@@ -90,7 +90,7 @@ class CloudWatchViewer(QWidget):
         regions = ["us-east-1", "us-east-2", "us-west-1", "us-west-2", 
                    "eu-west-1", "eu-central-1", "ap-southeast-1", "ap-northeast-1"]
         self.region_combo.addItems(regions)
-        self.region_combo.setCurrentText("eu-west-1") # Varsayılan
+        self.region_combo.setCurrentText("eu-west-1") 
 
         self.access_key_input = QLineEdit()
         self.access_key_input.setPlaceholderText("Access Key ID")
@@ -179,14 +179,14 @@ class CloudWatchViewer(QWidget):
             return QMessageBox.warning(self, "Warning", "Please enter Access Key and Secret Key.")
 
         try:
-            # Oturumu oluştur
+            
             self.session = boto3.Session(
                 aws_access_key_id=access_key,
                 aws_secret_access_key=secret_key,
                 region_name=region
             )
 
-            # Test et
+            
             sts = self.session.client("sts")
             identity = sts.get_caller_identity()
 
@@ -215,7 +215,7 @@ class CloudWatchViewer(QWidget):
                 else:
                     break
 
-            # Sırala ve ekle
+            
             groups.sort()
             for g in groups:
                 item = QListWidgetItem(g)
@@ -235,18 +235,18 @@ class CloudWatchViewer(QWidget):
         if not selected_items:
             return QMessageBox.warning(self, "Error", "Please select at least one log group.")
 
-        # Parametreleri al
+        
         log_groups = [item.text() for item in selected_items]
         filter_pattern = self.filter_input.text().strip()
         days = self.days_input.value()
 
-        # Arayüzü hazırla
+        
         self.text_area.clear()
         self.text_area.setText("Downloading logs... Please wait...")
         self.fetch_button.setEnabled(False)
         self.fetch_button.setText("Downloading... (Please Wait)")
 
-        # Thread'i başlat
+        
         self.worker = LogWorker(self.session, log_groups, filter_pattern, days)
         self.worker.finished.connect(self.on_download_complete)
         self.worker.error.connect(self.on_download_error)
@@ -259,7 +259,7 @@ class CloudWatchViewer(QWidget):
         self.last_events = events
         self.display_logs(events)
         
-        # Butonu eski haline getir
+        
         self.fetch_button.setEnabled(True)
         self.fetch_button.setText("Download Logs (Async)")
         
@@ -277,7 +277,7 @@ class CloudWatchViewer(QWidget):
     def display_logs(self, events):
         self.text_area.clear()
         
-        # Zaman damgasına göre sırala (Eskiden yeniye)
+        
         events.sort(key=lambda x: x['timestamp'])
 
         html_output = ""
@@ -290,7 +290,7 @@ class CloudWatchViewer(QWidget):
             
             formatted_msg = self.pretty_print(msg)
             
-            # Biraz renklendirme (HTML)
+           
             html_output += f"<b style='color:#2c3e50'>[{human_date}]</b><br><pre>{formatted_msg}</pre><hr>"
 
         self.text_area.setHtml(html_output)
