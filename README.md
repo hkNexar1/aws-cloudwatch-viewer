@@ -1,53 +1,65 @@
-# AWS CloudWatch Log Viewer PRO
+🚀 Features
 
-A desktop GUI application built with Python (PyQt5) to view, filter, and export AWS CloudWatch logs comfortably without logging into the AWS Console.
+🖥️ User-Friendly Interface: Clean and modern PyQt5 GUI.
 
-## Features
-- 🖥️ **User-Friendly Interface:** Clean PyQt5 GUI.
-- 🔍 **Advanced Filtering:** Filter logs by patterns and date ranges.
-- 📂 **Multi-Group Support:** Select and fetch logs from multiple log groups simultaneously.
-- 🌍 **Multi-Region Support:** Dynamically switch between AWS regions (us-east-1, eu-west-1, etc.).
-- ⚡ **Asynchronous Loading:** Implements QThread to fetch logs in the background without freezing the UI.
-- 💾 **Export Options:** Export logs to CSV, JSON, or TXT formats.
-- 🔐 **Secure:** Uses AWS Access Keys (session-based) locally.
+🔍 Advanced Filtering: Search logs by patterns and date ranges.
 
-## Installation
+📂 Multi-Group Support: Select and fetch logs from multiple log groups simultaneously.
 
-1. Clone the repository:
-   ```bash
-   git clone https://github.com/hknexar1/aws-cloudwatch-viewer.git
-   cd aws-cloudwatch-viewer```
-Install the required dependencies:
+🌍 Multi-Region Support: Dynamically switch between AWS regions (us-east-1, eu-west-1, etc.).
 
-```Bash
+⚡ Asynchronous Loading: Uses QThread to fetch logs in the background without freezing the UI.
 
-pip install boto3 PyQt5```
-Run the application:
+💾 Export Options: Export fetched logs as CSV, JSON, or TXT.
 
-```Bash
+🔐 Secure: Uses AWS Access Keys locally for the current session only.
 
+📦 Installation
+1. Clone the repository
+git clone https://github.com/hknexar1/aws-cloudwatch-viewer.git
+cd aws-cloudwatch-viewer
+
+2. Install dependencies
+pip install boto3 PyQt5
+
+3. Run the application
 python src/app.py
-(Note: Adjust the path if your file is named differently)
-```
-```Usage
-Launch the App: Run the script to open the GUI.
 
-Credentials & Region: - Select your AWS Region (e.g., eu-west-1).
+📝 Usage
+
+Launch the application.
+
+Select an AWS Region (e.g., eu-west-1).
 
 Enter your Access Key ID and Secret Access Key.
 
 Click "Verify AWS Keys & Load Groups".
 
-Select Logs: Once connected, your Log Groups will appear in the list. Select one or multiple groups (Ctrl/Cmd + Click).
+Select one or multiple Log Groups from the list.
 
-Filter (Optional):
+(Optional):
 
-Enter a text pattern (e.g., ERROR or Exception).
+Enter a filter pattern (ERROR, Exception, JSON filter expressions, etc.).
 
-Select how many days back you want to search using the spinner.
+Select how many days back you want to fetch logs.
 
-Download: Click "Download Logs (Async)". The logs will be fetched in the background.
+Click "Download Logs (Async)" to fetch logs in the background.
 
-Export: Use the buttons at the bottom to save the fetched logs as CSV, JSON, or TXT.
-```
+Export the fetched logs as CSV, JSON, or TXT.
 
+📁 Project Structure
+aws-cloudwatch-viewer/
+│
+├── src/
+│   ├── app.py          # Main PyQt5 application
+│   ├── aws_handler.py  # AWS API logic
+│   ├── threads.py      # QThread workers
+│   └── utils.py        # Helper utilities
+│
+├── README.md
+└── requirements.txt
+
+📄 License
+
+This project is licensed under the MIT License.
+You may freely use, modify, and distribute it.
