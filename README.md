@@ -16,20 +16,20 @@ A desktop GUI application built with Python (PyQt5) to view, filter, and export 
 1. Clone the repository:
    ```bash
    git clone https://github.com/hknexar1/aws-cloudwatch-viewer.git
-   cd aws-cloudwatch-viewer
+   cd aws-cloudwatch-viewer```
 Install the required dependencies:
 
-Bash
+```Bash
 
-pip install boto3 PyQt5
+pip install boto3 PyQt5```
 Run the application:
 
-Bash
+```Bash
 
 python src/app.py
 (Note: Adjust the path if your file is named differently)
-
-Usage
+```
+```Usage
 Launch the App: Run the script to open the GUI.
 
 Credentials & Region: - Select your AWS Region (e.g., eu-west-1).
@@ -49,14 +49,5 @@ Select how many days back you want to search using the spinner.
 Download: Click "Download Logs (Async)". The logs will be fetched in the background.
 
 Export: Use the buttons at the bottom to save the fetched logs as CSV, JSON, or TXT.
-
-Requirements
-Python 3.x
-
-boto3
-
-PyQt5
-
-License
-This project is licensed under the MIT License.
 ```
+
