@@ -29,7 +29,7 @@ pip install boto3 PyQt5
 python src/app.py
 ```
 ## 📝 Usage
-
+```bash
 Launch the application.
 
 Select an AWS Region (e.g., eu-west-1).
@@ -49,8 +49,9 @@ Select how many days back you want to fetch logs.
 Click "Download Logs (Async)" to fetch logs in the background.
 
 Export the fetched logs as CSV, JSON, or TXT.
-
+```
 ## 📁 Project Structure
+```bash
 aws-cloudwatch-viewer/
 │
 ├── src/
@@ -60,7 +61,7 @@ aws-cloudwatch-viewer/
 │
 ├── README.md
 └── requirements.txt
-
+```
 ## 📄 License
 
 This project is licensed under the MIT License.
