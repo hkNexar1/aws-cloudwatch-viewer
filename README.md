@@ -1,4 +1,4 @@
-#🚀 Features
+##🚀 Features
 
 🖥️ User-Friendly Interface: Clean and modern PyQt5 GUI.
 
@@ -28,7 +28,7 @@ pip install boto3 PyQt5
 ```bash
 python src/app.py
 ```
-#📝 Usage
+##📝 Usage
 
 Launch the application.
 
@@ -50,7 +50,7 @@ Click "Download Logs (Async)" to fetch logs in the background.
 
 Export the fetched logs as CSV, JSON, or TXT.
 
-#📁 Project Structure
+##📁 Project Structure
 aws-cloudwatch-viewer/
 │
 ├── src/
@@ -61,7 +61,7 @@ aws-cloudwatch-viewer/
 ├── README.md
 └── requirements.txt
 
-#📄 License
+##📄 License
 
 This project is licensed under the MIT License.
 
