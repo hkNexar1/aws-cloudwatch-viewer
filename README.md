@@ -26,7 +26,7 @@ pip install boto3 PyQt5
 ```
 3. Run the application
 ```bash
-python src/app.py
+python app.py
 ```
 ## 📝 Usage
 ```bash
