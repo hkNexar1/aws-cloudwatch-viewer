@@ -14,7 +14,7 @@
 
 🔐 Secure: Uses AWS Access Keys locally for the current session only.
 
-📦 Installation
+## 📦 Installation
 1. Clone the repository
 ```bash
 git clone https://github.com/hknexar1/aws-cloudwatch-viewer.git
